@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home } from './Home';
-import { Projects } from './Projects';
-import { Contact } from './Contact';
-import { NoMatch } from './NoMatch';
+import { Home } from './components/Home';
+import { Projects } from './components/Projects';
+import { Contact } from './components/Contact';
+import { NoMatch } from './components/NoMatch';
 
 
 class App extends Component {
