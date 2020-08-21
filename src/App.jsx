@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Projects } from "./pages/Projects";
 import { About } from "./pages/About";
+import { School } from "./pages/School";
 import { NoMatch } from "./pages/NoMatch";
 import Navigation from "./components/Navigation";
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/projects" component={Projects} />
+              <Route path="/school" component={School} />
               <Route path="/about" component={About} />
               <Route component={NoMatch} />
             </Switch>

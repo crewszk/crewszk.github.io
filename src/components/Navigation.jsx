@@ -31,13 +31,13 @@ class Navigation extends Component {
             <Nav.Link className="text-light" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="text-light" href="/Projects">
+            <Nav.Link className="text-light" href="/projects">
               Projects
             </Nav.Link>
-            <Nav.Link className="text-light" href="/School">
+            <Nav.Link className="text-light" href="/school">
               School
             </Nav.Link>
-            <Nav.Link className="text-light" href="/About">
+            <Nav.Link className="text-light" href="/about">
               About
             </Nav.Link>
           </Nav>
