@@ -1,33 +1,82 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Projects } from "./pages/Projects";
-import { About } from "./pages/About";
-import { School } from "./pages/School";
-import { NoMatch } from "./pages/NoMatch";
-import Navigation from "./components/Navigation";
+import Avatar from "@material-ui/core/Avatar";
+import { Home } from "./components/Home";
+import { Projects } from "./components/Projects";
+import { About } from "./components/About";
+import { School } from "./components/School";
+import { NoMatch } from "./components/NoMatch";
+import { Nav, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
+import github from "./images/github.png";
+import linkedin from "./images/linkedin.png";
+import avatar from "./images/myAvatar.jpg";
 
 class App extends Component {
-  state = {
-    pages: ["/projects", "/school", "/about"],
-  };
-
   render() {
     return (
       <React.Fragment>
-        <Navigation />
-        <Grid>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/projects" component={Projects} />
-              <Route path="/school" component={School} />
-              <Route path="/about" component={About} />
-              <Route component={NoMatch} />
-            </Switch>
-          </Router>
-        </Grid>
+        <Navbar
+          collapseOnSelect
+          expand="md"
+          bg="dark"
+          variant="dark"
+          sticky="top"
+        >
+          <Navbar.Brand className="text-white" href="/">
+            <Avatar src={avatar} />
+          </Navbar.Brand>
+          <Navbar.Brand className="text-white" href="/">
+            Zack's Portfolio
+          </Navbar.Brand>
+
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Nav>
+              <Nav.Link className="text-light" href="/">
+                Home
+              </Nav.Link>
+              <Nav.Link className="text-light" href="/projects">
+                Projects
+              </Nav.Link>
+              <Nav.Link className="text-light" href="/school">
+                School
+              </Nav.Link>
+              <Nav.Link className="text-light" href="/about">
+                About
+              </Nav.Link>
+            </Nav>
+            <Nav>
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id={"github-tooltip"}>My Github</Tooltip>}
+              >
+                <Nav.Link href="https://github.com/crewszk" target="_blank">
+                  <img src={github} alt="Link to my github" />
+                </Nav.Link>
+              </OverlayTrigger>
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id={"linkedin-tooltip"}>My LinkedIn</Tooltip>}
+              >
+                <Nav.Link
+                  href="https://www.linkedin.com/in/crewszk"
+                  target="_blank"
+                >
+                  <img src={linkedin} alt="Link to my LinkedIn" />
+                </Nav.Link>
+              </OverlayTrigger>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/school" component={School} />
+            <Route path="/about" component={About} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
       </React.Fragment>
     );
   }
