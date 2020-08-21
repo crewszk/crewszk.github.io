@@ -1,5 +1,4 @@
 import React from "react";
-import construction from "../images/construction.gif";
 
 export const School = () => (
   <div>
