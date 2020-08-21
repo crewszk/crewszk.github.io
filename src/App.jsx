@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { Home } from "./components/Home";
 import { Projects } from "./components/Projects";
@@ -7,6 +7,7 @@ import { About } from "./components/About";
 import { School } from "./components/School";
 import { NoMatch } from "./components/NoMatch";
 import { Nav, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import github from "./images/github.png";
 import linkedin from "./images/linkedin.png";
 import avatar from "./images/myAvatar.jpg";
@@ -15,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <HashRouter basename="/">
+        <Router>
           <Navbar
             collapseOnSelect
             expand="md"
@@ -33,18 +34,18 @@ class App extends Component {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
               <Nav>
-                <Nav.Link className="text-light" href="/">
-                  Home
-                </Nav.Link>
-                <Nav.Link className="text-light" href="/projects">
-                  Projects
-                </Nav.Link>
-                <Nav.Link className="text-light" href="/school">
-                  School
-                </Nav.Link>
-                <Nav.Link className="text-light" href="/about">
-                  About
-                </Nav.Link>
+                <LinkContainer to="/">
+                  <Nav.Link className="text-light">Home</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/projects">
+                  <Nav.Link className="text-light">Projects</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/school">
+                  <Nav.Link className="text-light">School</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/about">
+                  <Nav.Link className="text-light">About</Nav.Link>
+                </LinkContainer>
               </Nav>
               <Nav>
                 <OverlayTrigger
@@ -85,9 +86,11 @@ class App extends Component {
             <Route path="/about">
               <About />
             </Route>
-            <Route component={NoMatch} />
+            <Route>
+              <NoMatch />
+            </Route>
           </Switch>
-        </HashRouter>
+        </Router>
       </React.Fragment>
     );
   }
