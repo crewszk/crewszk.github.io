@@ -15,65 +15,76 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar
-          collapseOnSelect
-          expand="md"
-          bg="dark"
-          variant="dark"
-          sticky="top"
-        >
-          <Navbar.Brand className="text-white" href="/">
-            <Avatar src={avatar} />
-          </Navbar.Brand>
-          <Navbar.Brand className="text-white" href="/">
-            Zack's Portfolio
-          </Navbar.Brand>
-
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Nav>
-              <Nav.Link className="text-light" href="/">
-                Home
-              </Nav.Link>
-              <Nav.Link className="text-light" href="/projects">
-                Projects
-              </Nav.Link>
-              <Nav.Link className="text-light" href="/school">
-                School
-              </Nav.Link>
-              <Nav.Link className="text-light" href="/about">
-                About
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <OverlayTrigger
-                placement="bottom"
-                overlay={<Tooltip id={"github-tooltip"}>My Github</Tooltip>}
-              >
-                <Nav.Link href="https://github.com/crewszk" target="_blank">
-                  <img src={github} alt="Link to my github" />
-                </Nav.Link>
-              </OverlayTrigger>
-              <OverlayTrigger
-                placement="bottom"
-                overlay={<Tooltip id={"linkedin-tooltip"}>My LinkedIn</Tooltip>}
-              >
-                <Nav.Link
-                  href="https://www.linkedin.com/in/crewszk"
-                  target="_blank"
-                >
-                  <img src={linkedin} alt="Link to my LinkedIn" />
-                </Nav.Link>
-              </OverlayTrigger>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
         <Router>
+          <Navbar
+            collapseOnSelect
+            expand="md"
+            bg="dark"
+            variant="dark"
+            sticky="top"
+          >
+            <Navbar.Brand className="text-white" href="/">
+              <Avatar src={avatar} />
+            </Navbar.Brand>
+            <Navbar.Brand className="text-white" href="/">
+              Zack's Portfolio
+            </Navbar.Brand>
+
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+              <Nav>
+                <Nav.Link className="text-light" href="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link className="text-light" href="/projects">
+                  Projects
+                </Nav.Link>
+                <Nav.Link className="text-light" href="/school">
+                  School
+                </Nav.Link>
+                <Nav.Link className="text-light" href="/about">
+                  About
+                </Nav.Link>
+              </Nav>
+              <Nav>
+                <OverlayTrigger
+                  placement="bottom"
+                  overlay={<Tooltip id={"github-tooltip"}>My Github</Tooltip>}
+                >
+                  <Nav.Link href="https://github.com/crewszk" target="_blank">
+                    <img src={github} alt="Link to my github" />
+                  </Nav.Link>
+                </OverlayTrigger>
+                <OverlayTrigger
+                  placement="bottom"
+                  overlay={
+                    <Tooltip id={"linkedin-tooltip"}>My LinkedIn</Tooltip>
+                  }
+                >
+                  <Nav.Link
+                    href="https://www.linkedin.com/in/crewszk"
+                    target="_blank"
+                  >
+                    <img src={linkedin} alt="Link to my LinkedIn" />
+                  </Nav.Link>
+                </OverlayTrigger>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/projects" component={Projects} />
-            <Route path="/school" component={School} />
-            <Route path="/about" component={About} />
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/projects">
+              <Projects />
+            </Route>
+            <Route path="/school">
+              <School />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
             <Route component={NoMatch} />
           </Switch>
         </Router>
