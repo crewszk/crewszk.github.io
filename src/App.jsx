@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { Home } from "./components/Home";
 import { Projects } from "./components/Projects";
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Router>
+        <HashRouter basename="portfolio" hashType="noslash">
           <Navbar
             collapseOnSelect
             expand="md"
@@ -90,7 +90,7 @@ class App extends Component {
               <NoMatch />
             </Route>
           </Switch>
-        </Router>
+        </HashRouter>
       </React.Fragment>
     );
   }
