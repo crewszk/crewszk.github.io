@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import { Home } from "./components/Home";
-import { Projects } from "./components/Projects";
-import { About } from "./components/About";
-import { School } from "./components/School";
-import { NoMatch } from "./components/NoMatch";
 import { Nav, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import construction from "./images/construction.gif";
 import github from "./images/github.png";
 import linkedin from "./images/linkedin.png";
 import avatar from "./images/myAvatar.jpg";
@@ -97,3 +93,44 @@ class App extends Component {
 }
 
 export default App;
+
+export const Home = () => (
+  <div>
+    <h2>THIS WEBSITE IS CURRENTLY UNDER CONSTRUCTION</h2>
+    <img src={construction} alt="" />
+  </div>
+);
+
+export const School = () => (
+  <div>
+    <h2>This is the school page</h2>
+  </div>
+);
+
+export const Projects = () => (
+  <div>
+    <h1>Hello World, this is the projects page</h1>
+  </div>
+);
+
+export const About = () => (
+  <div>
+    <h1>Hello World, this is the About page</h1>
+    <div>
+      Icons made by{" "}
+      <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">
+        Dave Gandy
+      </a>{" "}
+      from{" "}
+      <a href="https://www.flaticon.com/" title="Flaticon">
+        www.flaticon.com
+      </a>
+    </div>
+  </div>
+);
+
+export const NoMatch = () => (
+  <div>
+    <h1>NoMatch</h1>
+  </div>
+);
